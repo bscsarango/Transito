@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="themes/temaD.css" />
+    <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/barcodescanner.js"></script>
+    <script src="js/JqMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/codigoQR.js"></script>
+</head>
+
+<body>
+
+    <!-- Pagina de Usuario: Captura Codigo  !-->
+    <div data-role="page" id="pantallaDenunciaQR">
+        <div data-role="header">
+            <h1>USUARIOS</h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+
+        </div>
+        <div role="main" class="ui-content">
+             <img src='img/puertaCiudad.png' id="pciudad2">
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <br></br>
+                        <center>
+                            <h3>Captura Codigo QR</h3>
+                            <hr>
+                        <center>
+                            <br></br>
+                            <br></br>
+                            <a onClick="DleerQR()" title="Camara"><img src='img/camr.png'id="camaraUs"></a>
+                        </center>
+                        <center>
+                            <h4>Camara</h4>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            <br></br>
+                        <br></br>
+             </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </div>
+ <img src='img/lineacolor.png' id="bandera5">
+        <center><img src='img/UMTTTSV3.png' id="umtttsv5"></center>
+    </div>
+</body>
+
+</html>

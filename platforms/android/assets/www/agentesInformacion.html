@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="themes/temaD.css" />
+    <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/barcodescanner.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/conexionPermiso.js"></script>
+    <script type="text/javascript" src="js/conexiondenuncia.js"></script>
+</head>
+
+<body onload="permisoWsdl();verdenunciaWsdl();">
+    <!-- Pagina de Agentes Muestra datos   !-->
+    <div data-role="page" id="pantallaAgentes2">
+        <div data-role="header">
+            <h1><center>Información Principal Usuario</center></h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+        </div>
+        <div role="main" class="ui-content">
+            <div>
+                <table style="width:100%">
+                    <tr>
+                        <td WIDTH="40"> <img src="img/QRT1.png" id="qr" style="" border='0' /></td>
+                        <td WIDTH="20">
+                            <h2>Registro Municipal</h2>
+                            <input type="text" name="n_registro" id="n_registro" style="widows: 10px;0%" />
+                        </td>
+                        <td WIDTH="40"><img src="img/escudo.png" id="escudo" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#informacion" data-ajax="false">Informacion</a></li>
+                        <li><a href="#Denuncias" data-ajax="false">Denuncia</a></li>
+                    </ul>
+                </div>
+                <div id="informacion" class="ui-body-d ui-content">
+                    <ul data-role="listview" data-inset="true" data-divider-theme="c">
+                        <center>Socio</center>
+                    </ul>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tablaSocio">
+                        <tr>
+                            <td class="tablaDatosTitulo">Nombre </td>
+                            <td>
+                                <input name="tablaNombre" type="text" id="tablaNombre" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Apellido </td>
+                            <td>
+                                <input name="tablaApellido" id="tablaApellido" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Cédula </td>
+                            <td>
+                                <input name="tablaCedula" id="tablaCedula" type="text" />
+                            </td>
+                        </tr>
+                    </table>
+                    <ul data-role="listview" data-inset="true" data-divider-theme="c">
+                        <center> Permiso</center>
+                    </ul>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tablaPermiso">
+                        <tr>
+                            <td class="tablaDatosTitulo">Codigo </td>
+                            <td>
+                                <input name="tablaPermiso" type="text" id="tablaPermiso" />
+                            </td>
+                        </tr>
+                    </table>
+                    <ul data-role="listview" data-inset="true" data-divider-theme="c">
+                        <center>Vehiculo</center>
+                    </ul>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tablaVehiculo">
+                        <tr>
+                            <td class="tablaDatosTitulo">Código </td>
+                            <td>
+                                <input name="tablaCodVehiculo" type="text" id="tablaCodVehiculo" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Placa </td>
+                            <td>
+                                <input name="tablaPlaca" id="tablaPlaca" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Marca </td>
+                            <td>
+                                <input name="tablaMarca" id="tablaMarca" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Modelo </td>
+                            <td>
+                                <input name="tablaModelo" id="tablaModelo" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">chasis </td>
+                            <td>
+                                <input name="tablaChasis" id="tablaChasis" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Motor </td>
+                            <td>
+                                <input name="tablaMotor" id="tablaMotor" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tablaDatosTitulo">Tipo </td>
+                            <td>
+                                <input name="tablaTipoVehiculo" id="tablaTipoVehiculo" type="text" />
+                            </td>
+                        </tr>
+                    </table>
+                    <ul data-role="listview" data-inset="true" data-divider-theme="c">
+                        <center>Empresa</center>
+                    </ul>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tablaEmpresa">
+                        <tr>
+                            <td class="tablaDatosTitulo">Nombre </td>
+                            <td>
+                                <input name="tablaNomEmpresa" type="text" id="tablaNomEmpresa" />
+                            </td>
+                        </tr>
+                    </table>
+                    <ul data-role="listview" data-inset="true" data-divider-theme="c">
+                        <center>Revisión</center>
+                    </ul>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tablaRevision">
+                        <tr>
+                            <td class="tablaDatosTitulo">Estado </td>
+                            <td>
+                                <input name="tablaRevision" type="text" id="tablaRevision" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Denuncias">
+                    <ul id="listview" data-role="listview" data-inset="true" class="tablist-left">
+                    </ul>
+                </div>
+                <br></br>
+                <br></br>
+            </div>
+            <div data-role="panel" id="left-panel">
+                <ul data-role="listview">
+                    <li><a href="#" onClick="cerrar()">Salir</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                </ul>
+            </div>
+        </div>
+        <img src='img/lineacolor.png' id="bandera6">
+        <center><img src='img/UMTTTSV3.png' id="umtttsv6"></center>
+    </div>
+</body>
+
+</html>

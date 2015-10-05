@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <title>Municipio Loja</title>
+    <link rel="stylesheet" type="text/css" href="themes/temaD.css" />
+    <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/conexionLogin.js"></script>
+
+    <script type="text/javascript">
+function ver(){
+$("#visto").css("display", "block");
+}
+    </script>
+
+</head>
+
+<body>
+    <!-- Pagina de inicio!-->
+    <div data-role="page" id="inicio">
+        <div data-role="header" id="hh">
+            <a href="#left-panel" data-icon="img/grid-black.png">Menu</a>
+            <p>
+                <h1 style="font-size: 100%;">Control Registro Municipal</h1>
+                <img src='img/escudo.png' id="img1">
+            </p>
+        </div>
+        <div role="main" class="ui-content">
+            <table style="width:100%">
+                <tr>
+                    <br></br>
+                    <br></br>
+                    <p></p>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#agenteslogin" data-role="button" data-icon="start" mini="true">AGENTES</a>
+                        <br></br>
+                        <br></br>
+                        <a href="#pantallaDatos" data-role="button" mini="true">DENUNCIAS</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </div>
+        <img src='img/lineacolor.png' id="bandera1">
+        <center><img src='img/UMTTTSV3.png' id="umtttsv1"></center>
+    </div>
+    <!-- ********Pagina de Login de Agentes!********-->
+    <div data-role="page" id="agenteslogin">
+        <div data-role="header">
+            <h1>Login</h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+            <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
+        </div>
+        <div role="main" class="ui-content">
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <center><img src='img/usuario.png' border='0' style="width:40%; "></center>
+                        <p></p>
+                        <label> Usuario </label>
+                        <input type="text" id="nom_usuario" name="nom_usuario">
+                        <label> Password </label>
+                        <input type="password" id="clave" name="clave">
+                        <input value="Ingresar" type="button" onClick="usuarioWsdl()" height="10px" width="10px" />
+                        <br></br>
+                        <br></br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </div>
+        <img src='img/lineacolor.png' id="bandera2">
+        <center><img src='img/UMTTTSV3.png' id="umtttsv2"></center>
+    </div>
+    <!-- Pagina de Usuario: Registro  !-->
+    <div data-role="page" id="pantallaDatos">
+        <div data-role="header">
+            <h1>Registro de Datos Personales</h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+            <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
+        </div>
+        <div data-role="content">
+            <table style="width:100%">
+                <tr></tr>
+                <td>
+                    <label for="cedula" class="ui-hidden-accessible">Cedula:</label>
+                    <input type="text" name="cedula" id="cedula" value="" placeholder="Cédula" />
+                </td>
+                <td>
+                    <img src='img/index.png' id="visto" style="display: none;width:20%">
+                </td>
+                <tr>
+                    <td>
+                        <label for="nombres" class="ui-hidden-accessible">Nombres:</label>
+                        <input type="text" name="nombres" id="nombres" value="" placeholder="Nombres" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="apellidos" class="ui-hidden-accessible">Apellidos:</label>
+                        <input type="text" name="apellidos" id="apellidos" value="" placeholder="Apellidos" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="telefono" class="ui-hidden-accessible">Telefono:</label>
+                        <input type="text" name="telefono" id="telefono" value="" placeholder="Teléfono" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="lugar" class="ui-hidden-accessible">Lugar:</label>
+                        <input type="text" name="lugar" id="lugar" value="" placeholder="Lugar/Ciudad de residencia" />
+                        <a data-role="button" mini="true" onClick="llenarFormulario()">Listo</a>
+                    </td>
+                </tr>
+            </table>
+            <br></br>
+            <br></br>
+        </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </div>
+        <img src='img/lineacolor.png' id="bandera3">
+        <center><img src='img/UMTTTSV3.png' id="umtttsv3"></center>
+    </div>
+</body>
+
+</html>

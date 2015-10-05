@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="themes/temaagentes.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/conexiondenuncia.js"></script>
+</head>
+
+<body onload="cargarDetalles()">
+    <div data-role="page" id="pantallaAgentes2">
+        <div data-role="header">
+                        <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+
+        </div>
+          <div role="main" class="ui-content">
+            <table align="center" cellpadding="0" cellspacing="0" class="tablaDetalle">
+                <tr>
+                    <td class="tablaDatosTitulo">Fecha: </td>
+                    <td>
+                        <input name="DetalleFecha" type="text" id="DetalleFecha" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tablaDatosTitulo">Descripción: </td>
+                    <td>
+                        <input name="DetalleDescripcion" id="DetalleDescripcion" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tablaDatosTitulo">Imagen: </td>
+                    <td>
+                        <input name="DetalleImagen" id="DetalleImagen" type="text" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+                <li><a href="#">Ayuda</a></li>
+        </div>
+    </div>
+</body>
+
+</html>
