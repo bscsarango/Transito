@@ -14,7 +14,6 @@
 <gap:plugin name="cordova-plugin-camera" />
 <gap:plugin name="cordova-plugin-file" />
 <gap:plugin name="cordova-plugin-file-transfer" />
-<gap:plugin name="cordova-plugin-whitlist" />
 <gap:plugin name="org.apache.cordova.device" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
