@@ -2,7 +2,7 @@
 
 <widget  xmlns="http://www.w3.org/ns/widgets" 
 xmlns:gap="http://phonegap.com/ns/1.0"
-id="com.bs.Hello_controlT" version="0.0.1"
+id="com.bs.Hello_controlT" version="0.0.1">
     <name>MLControlR</name>
     <description>
        Unidad Municipal de Transporte Terrestre Transito y Seguridad Vial.
