@@ -4,27 +4,36 @@
 <head>
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="themes/temaD.css" />
+    <title>Municipio Loja</title>
+    <link rel="stylesheet" type="text/css" href="themes/temaB.css" />
     <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/JqMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+
     <script src="js/barcodescanner.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/conexionPermiso.js"></script>
-     <script type="text/javascript" src="js/codigoQR.js"></script>
+    <script type="text/javascript" src="js/CodigoQR.js"></script>
 </head>
 
 <body>
-    <!-- *******Pagina de Agentes Captura codigo*******  !-->
+    <!-- *******Pagina de Agentes Captura codigo*******     $('#estadocx')..hide();!-->
     <div data-role="page" id="pantallaAgentes2">
         <div data-role="header">
-            <h4>Agentes - </h4>
+            <MARQUEE>
+                <h4>Control Operacional - Agentes</h4></MARQUEE>
             <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
             <img src='img/escudo.png' id="img2">
         </div>
         <div role="main" class="ui-content">
+        
             <table style="width:100%">
                 <tr>
                     <td>
@@ -32,26 +41,28 @@
                         <center>
                             <h3>Captura Codigo QR</h3>
                             <hr>
-                        <center>
                             <br></br>
                             <a onClick="AleerQR()" title="Camara"><img src='img/camr.png' id="camara"></a>
                         </center>
                         <center>
-                            <h4>Camara</h4>
-                        </center>
+                            <h2>Camara</h2></center>
                     </td>
                 </tr>
             </table>
             <br></br>
-            </br></br>
+            <br></br>
+        </div>
         <div data-role="panel" id="left-panel">
-            <ul data-role="listview">
+            <ul data-role="listview" style="width: 80%;">
                 <li><a href="#" onClick="cerrar()">Salir</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
+            <br></br>
+            <br></br>
+            <img src='img/logoMenu.png' id="logomenu2">
         </div>
- <img src='img/lineacolor.png' id="bandera4">
-        <center><img src='img/UMTTTSV3.png' id="umtttsv4"></center>
+        <img src='img/lineacolor.png' id="bandera4">
+        <center><img src='img/umtttsv1.png' id="umtttsv4"></center>
     </div>
 </body>
 

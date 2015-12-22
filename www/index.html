@@ -5,73 +5,85 @@
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <meta charset="utf-8">
     <title>Municipio Loja</title>
-    <link rel="stylesheet" type="text/css" href="themes/temaD.css" />
+    <link rel="stylesheet" type="text/css" href="themes/temaB.css" />
     <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/JqMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/conexionLogin.js"></script>
-
+    <script type="text/javascript" src="js/ConexionLogin.js"></script>
+    <script type="text/javascript" src="js/ControlPermiso.js"></script>
     <script type="text/javascript">
-function ver(){
-$("#visto").css("display", "block");
-}
+    function  WWW(){
+
+
+    }
     </script>
 
 </head>
-
-<body>
+<body onload="checkConnection()">
     <!-- Pagina de inicio!-->
     <div data-role="page" id="inicio">
         <div data-role="header" id="hh">
-            <a href="#left-panel" data-icon="img/grid-black.png">Menu</a>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
             <p>
-                <h1 style="font-size: 100%;">Control Registro Municipal</h1>
+            <MARQUEE><h4><center>Control Registro Municipal</center></h4></MARQUEE>
                 <img src='img/escudo.png' id="img1">
             </p>
         </div>
         <div role="main" class="ui-content">
-            <table style="width:100%">
-                <tr>
-                    <br></br>
+             <br></br>
                     <br></br>
                     <p></p>
+            <table style="width:100%">
+                <tr>
                 </tr>
                 <tr>
                     <td>
                         <a href="#agenteslogin" data-role="button" data-icon="start" mini="true">AGENTES</a>
                         <br></br>
                         <br></br>
-                        <a href="#pantallaDatos" data-role="button" mini="true">DENUNCIAS</a>
+                        <a href="#" onclick="pregDate()" data-role="button" mini="true">DENUNCIAS</a>
+                        <a href="https://es.surveymonkey.com/r/H6ZHHQP">Contestar Encuesta</a>
                     </td>
                 </tr>
             </table>
         </div>
         <div data-role="panel" id="left-panel">
-            <ul data-role="listview">
+            <ul data-role="listview" style="width: 80%;">
                 <li><a href="#" onClick="cerrar()">Salir</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
+            <br>
+            <br>
+            <img src='img/logoMenu.png' id="logomenu1">
         </div>
         <img src='img/lineacolor.png' id="bandera1">
-        <center><img src='img/UMTTTSV3.png' id="umtttsv1"></center>
+        <center><img src='img/umtttsv1.png' id="umtttsv1"></center>
     </div>
+    
     <!-- ********Pagina de Login de Agentes!********-->
     <div data-role="page" id="agenteslogin">
         <div data-role="header">
-            <h1>Login</h1>
+            <h4>Login</h4>
             <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
             <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
         </div>
         <div role="main" class="ui-content">
-            <table style="width:100%">
+            <table style="width:90%">
                 <tr>
                     <td>
                         <center><img src='img/usuario.png' border='0' style="width:40%; "></center>
-                        <p></p>
+                        <p>
                         <label> Usuario </label>
                         <input type="text" id="nom_usuario" name="nom_usuario">
                         <label> Password </label>
@@ -84,68 +96,16 @@ $("#visto").css("display", "block");
             </table>
         </div>
         <div data-role="panel" id="left-panel">
-            <ul data-role="listview">
+            <ul data-role="listview" style="width: 80%;">
                 <li><a href="#" onClick="cerrar()">Salir</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
+            <br>
+            <br>
+            <img src='img/logoMenu.png' id="logomenu11">
         </div>
-        <img src='img/lineacolor.png' id="bandera2">
-        <center><img src='img/UMTTTSV3.png' id="umtttsv2"></center>
-    </div>
-    <!-- Pagina de Usuario: Registro  !-->
-    <div data-role="page" id="pantallaDatos">
-        <div data-role="header">
-            <h1>Registro de Datos Personales</h1>
-            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-            <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
-        </div>
-        <div data-role="content">
-            <table style="width:100%">
-                <tr></tr>
-                <td>
-                    <label for="cedula" class="ui-hidden-accessible">Cedula:</label>
-                    <input type="text" name="cedula" id="cedula" value="" placeholder="Cédula" />
-                </td>
-                <td>
-                    <img src='img/index.png' id="visto" style="display: none;width:20%">
-                </td>
-                <tr>
-                    <td>
-                        <label for="nombres" class="ui-hidden-accessible">Nombres:</label>
-                        <input type="text" name="nombres" id="nombres" value="" placeholder="Nombres" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="apellidos" class="ui-hidden-accessible">Apellidos:</label>
-                        <input type="text" name="apellidos" id="apellidos" value="" placeholder="Apellidos" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="telefono" class="ui-hidden-accessible">Telefono:</label>
-                        <input type="text" name="telefono" id="telefono" value="" placeholder="Teléfono" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="lugar" class="ui-hidden-accessible">Lugar:</label>
-                        <input type="text" name="lugar" id="lugar" value="" placeholder="Lugar/Ciudad de residencia" />
-                        <a data-role="button" mini="true" onClick="llenarFormulario()">Listo</a>
-                    </td>
-                </tr>
-            </table>
-            <br></br>
-            <br></br>
-        </div>
-        <div data-role="panel" id="left-panel">
-            <ul data-role="listview">
-                <li><a href="#" onClick="cerrar()">Salir</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
-        </div>
-        <img src='img/lineacolor.png' id="bandera3">
-        <center><img src='img/UMTTTSV3.png' id="umtttsv3"></center>
+        <img src='img/lineacolor.png' id="bandera11">
+        <center><img src='img/umtttsv1.png' id="umtttsv2"></center>
     </div>
 </body>
 

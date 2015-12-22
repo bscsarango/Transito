@@ -1,58 +1,14 @@
-function llenarFormulario() {
-    var gcedula = $('#cedula').val();
-    localStorage.setItem("gcedula", gcedula);
-    var gnombres = $('#nombres').val();
-    localStorage.setItem("gnombres", gnombres);
-    var gapellidos = $('#apellidos').val();
-    localStorage.setItem("gapellidos", gapellidos);
-    var gtelefono = $('#telefono').val();
-    localStorage.setItem("gtelefono", gtelefono);
-    var glugar = $('#lugar').val();
-    localStorage.setItem("glugar", glugar);
-    if (validaCedula(gcedula)) {
-        $("#visto").css("display", "block");
-        alert("Se Guardo con Exito!!");
-        window.location = 'usuarioQR.html';
-    }
-}
+document.addEventListener("deviceready", onDeviceReady, false);
 
-function validaCedula(cedula) {
-    var array = cedula;
-    var num = array.length;
-    if (num == 10) {
-        var total = 0;
-        var digito = (array[9] * 1);
-        for (i = 0; i < (num - 1); i++) {
-            if ((i % 2) != 0) {
-                total = total + (array[i] * 1);
-            } else {
-                var mult = array[i] * 2;
-                if (mult > 9) total = total + (mult - 9);
-                else total = total + mult;
-            }
-        }
-        var decena = total / 10;
-        decena = Math.floor(decena);
-        decena = (decena + 1) * 10;
-        final = (decena - total);
-        if ((final == 10 && digito == 0) || (final == digito)) {
 
-            return true;
-        } else {
-            alert("El numero de cedula es incorrecto");
-
-            return false;
-        }
-    } else {
-        alert("El número de la cédula debe tener 10 digitos");
-        return false;
-    }
+function onDeviceReady() {
+    console.log(navigator.notification);
 }
 
 function usuarioWsdl() {
-    var wsUrl = 'http://192.168.1.103:8080/MetodosUsuario/MetodosUsuario?WSDL';
-    var resultado;
-    var llamarsoap = '<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/">\
+    this.wsUrl = 'http://192.168.1.101:9090/MetodosUsuario/MetodosUsuario?WSDL';
+    //var resultado;
+    this.env_soap= '<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/">\
         <SOAP-ENV:Header/>\
         <S:Body>\
             <ns1:logear_usuario xmlns:ns1="http://servicios.ws/">\
@@ -67,14 +23,14 @@ function usuarioWsdl() {
         contentType: 'text/xml',
         dataType: 'xml',
         async: false,
-        data: llamarsoap,
+        data: env_soap,
         success: function(data, status, req) {
             if (status == "success") {
                 var resp = $(req.responseXML).find("return").text();
                 if (resp == "true") {
                     window.location = 'agentes.html';
                 } else {
-                    alert("Error de usuario y/o contraseña");
+                    swal("Error de usuario y/o contraseña");
                 }
             }
         },
@@ -84,3 +40,114 @@ function usuarioWsdl() {
         }
     });
 }
+usuarioWsdl.prototype = new conexion;
+
+
+function RegistroDenunciante() {
+    
+    this.wsUrl= 'http://192.168.1.101:9090/MetodosTransito/MetodosTransito?WSDL';
+    //var resultado;
+    this.env_soap= '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">\
+    <SOAP-ENV:Header/>\
+    <S:Body>\
+        <ns2:registrarDenunciante xmlns:ns2="http://servicios.ws/">\
+            <ced>' + localStorage.getItem("gcedula") + '</ced>\
+            <nombre>' + localStorage.getItem("gnombres") + '</nombre>\
+            <apellidos>' + localStorage.getItem("gapellidos") + '</apellidos>\
+            <telefono>' + localStorage.getItem("gtelefono") + '</telefono>\
+            <lugar>' + localStorage.getItem("glugar") + '</lugar>\
+        </ns2:registrarDenunciante>\
+    </S:Body>\
+</S:Envelope>';
+    $.ajax({
+        type: 'POST',
+        url: wsUrl,
+        contentType: 'text/xml',
+        dataType: 'xml',
+        async: false,
+        data: env_soap,
+        success: function(data, status, req) {
+            if (status == "success") {
+                var resp = $(req.responseXML).find("return").text();
+                if (resp == "true") {
+                    swal({
+                            title: "Correcto!",
+                            text: "Los datos se han Registrado con Exito!",
+                            type: "info",
+                            showCancelButton: false,
+                            closeOnConfirm: false,
+                            showLoaderOnConfirm: true,
+                        },
+                        function() {
+                                localStorage.setItem("estadoRegistro",'si');
+                               setTimeout(function() {
+                               window.location = 'usuarioQR.html';
+                                },
+                                2000);
+                        });
+
+                } else {
+                    swal({
+                        title: "",
+                        text: "Ya existe otro Usuario registrado con el mismo N° de Cedula!",
+                        type: "warning",
+                        closeOnConfirm: true,
+                    });
+                }
+            }
+        },
+        error: function(data, status, req) {
+              localStorage.setItem("estadoRegistro",'no');
+              alert("ERROR DE CONEXION!");
+            window.location = 'index.html';
+        }
+    });
+}
+RegistroDenunciante.prototype = new conexion;
+
+
+function ModificarDenunciante() {
+    
+    camposObligatorios();
+    this.wsUrl= 'http://192.168.1.101:9090/MetodosTransito/MetodosTransito?WSDL';
+    //var resultado;
+this.env_soap = '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">\
+    <SOAP-ENV:Header/>\
+    <S:Body>\
+        <ns2:modificarDenunciante xmlns:ns2="http://servicios.ws/">\
+            <ced>' + localStorage.getItem("gcedula") + '</ced>\
+            <nombre>' + localStorage.getItem("gnombres") + '</nombre>\
+            <apellidos>' + localStorage.getItem("gapellidos") + '</apellidos>\
+            <telefono>' + localStorage.getItem("gtelefono") + '</telefono>\
+            <lugar>' + localStorage.getItem("glugar") + '</lugar>\
+        </ns2:modificarDenunciante>\
+    </S:Body>\
+</S:Envelope>';
+    $.ajax({
+        type: 'POST',
+        url: wsUrl,
+        contentType: 'text/xml',
+        dataType: 'xml',
+        async: false,
+        data: env_soap,
+        success: function(data, status, req) {
+            if (status == "success") {
+                var resp = $(req.responseXML).find("return").text();
+                if (resp == "true") {
+                    swal("correcto!", "Los datos se han modificado con Exito!", "success")
+
+                    window.location = 'usuarioQR.html';
+                } else {
+                    swal("Error al ingresar los datos. Revise que los campos esten correctamente llenados");
+                }
+            }
+        },
+        error: function(data, status, req) {
+            alert("ERROR DE CONEXION!");
+            window.location = 'index.html';
+        }
+    });
+
+}
+ModificarDenunciante.prototype = new conexion;
+

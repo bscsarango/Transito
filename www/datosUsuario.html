@@ -17,35 +17,54 @@
     <script src="js/jquery-1.11.3.js"></script>
     <script type="text/javascript" src="js/sweetalert.min.js"></script>
     
-    <script src="js/barcodescanner.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/CodigoQR.js"></script>
+    <script type="text/javascript" src="js/ConexionDenuncia.js"></script>
+    <script type="text/javascript" src="js/ConexionLogin.js"></script>
     <script type="text/javascript" src="js/ControlPermiso.js"></script>
-   </head>
-<body >
-    <!-- Pagina de Usuario: Captura Codigo  !-->
-    <div data-role="page" id="pantallaDenunciaQR">
+</head>
+
+<body>
+    <!-- Pagina de Usuario: Registro  !-->
+    <div data-role="page">
         <div data-role="header">
-           <MARQUEE> <h4>USUARIOS</h4></MARQUEE>
+            <MARQUEE><h4>Registro de Datos Personales</h4></MARQUEE>
             <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+            <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
         </div>
-        <div role="main" class="ui-content">
-            <img src='img/puertaCiudad.png' id="pciudad2">
+        <div data-role="content">
+            <p><h3>Datos Personales </h3></p>
             <table style="width:100%">
+                <tr></tr>
+                <td>
+                    <input type="text" name="cedula" id="cedula" value="" placeholder="* C&eacute;dula" onkeypress="return validaNumero(event)" />
+                </td>
+                <td>
+                    <img src='img/index.png' id="visto" style="display: none;width:20%">
+                </td>
                 <tr>
                     <td>
-                       <center>
-                            <h3>Captura Codigo QR</h3>
-                            <hr>
-                                <br></br>
-                                <a onClick="DleerQR()" title="Camara"><img src='img/camr.png' id="camaraUs"></a>
-                                <h2>Camara</h2>
-                            </center>
+                        <input type="text" name="nombres" id="nombres" value="" placeholder="* Nombres" onkeypress="return validaLetras(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="apellidos" id="apellidos" value="" placeholder="* Apellidos" onkeypress="return validaLetras(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="telefono" id="telefono" value="" placeholder="* Tel&eacute;fono" onkeypress="return validaNumero(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="lugar" id="lugar" value="" placeholder="* Lugar/Ciudad de residencia" />
+                        <a data-role="button" mini="true" onClick="llenarFormulario()">Listo</a>
                     </td>
                 </tr>
             </table>
-        </div>
+                  </div>
         <div data-role="panel" id="left-panel">
             <ul data-role="listview" style="width: 80%;">
                 <li data-role="collapsible">
@@ -57,10 +76,11 @@
                 <li><a href="#">Ayuda</a></li>
                 <li><a href="#" onClick="cerrar()">Salir</a></li>
             </ul>
-             <img src='img/logoMenu.png' id="logomenu5">
+             <img src='img/logoMenu.png' id="logomenu4">
         </div>
-        <img src='img/lineacolor.png' id="bandera5">
-        <center><img src='img/umtttsv1.png' id="umtttsv5"></center>
+        <img src='img/lineacolor.png' id="bandera3">
+        <center><img src='img/umtttsv1.png' id="umtttsv3"></center>
     </div>
 </body>
+
 </html>

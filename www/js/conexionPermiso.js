@@ -1,8 +1,8 @@
 
 function permisoWsdl() {
-    var wsUrl = 'http://192.168.1.103:8080/MetodosTransito/MetodosTransito?WSDL';
-    var resultado;
-    var llamarsoap = '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">\
+     this.wsUrl = 'http://192.168.1.101:9090/MetodosTransito/MetodosTransito?WSDL';
+    //var resultado;
+  this.env_soap= '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">\
     <SOAP-ENV:Header/>\
     <S:Body>\
         <ns2:consultar_permiso xmlns:ns2="http://servicios.ws/">\
@@ -16,9 +16,8 @@ function permisoWsdl() {
             contentType: 'text/xml',
             dataType: 'xml',
             async: false,
-            data: llamarsoap,
+            data: env_soap,
          success: function(data, status, req) {
-          //alert("FIN NOMBRES : "+ $(req.responseXML).find("nombres_socio").text());
           $('#tablaNombre').val($(req.responseXML).find("nombres_socio").text());          
           $('#tablaApellido').val($(req.responseXML).find("apellidos_socio").text());          
           $('#tablaCedula').val($(req.responseXML).find("ced_socio").text());          
@@ -38,17 +37,6 @@ function permisoWsdl() {
                     alert("ERROR DE CONEXION!");
                 }
             });
-    
-   // $('#Denuncias').on('click', function() {verdenunciaWsdl();});
-
-
- //   $('#listview').children('li').on('click', function() {
- //       fecha = $(this).attr('data-name');
- //       detalles();
- //       verDialogo();
-   //  });
-
-
   }
 
-   
+   permisoWsdl.prototype = new conexion;

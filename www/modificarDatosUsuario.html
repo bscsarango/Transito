@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <title>Municipio Loja</title>
+    <link rel="stylesheet" type="text/css" href="themes/temaB.css" />
+    <link rel="stylesheet" type="text/css" href="css/paginasControl.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/JqMobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/ConexionDenuncia.js"></script>
+    <script type="text/javascript" src="js/ConexionLogin.js"></script>
+    <script type="text/javascript" src="js/ControlPermiso.js"></script>
+    <script type="text/javascript">
+ function desabilitar(){
+    $ ( "#Mcedula" ). attr ( "disabled" ,  "disabled" );  
+ }
+    </script>
+</head>
+
+<body onload="cargarDatos();desabilitar()">
+    <!-- Pagina de Usuario: Registro  !-->
+    <div data-role="page">
+        <div data-role="header">
+           <MARQUEE> <h4>Datos Personales</h4></MARQUEE>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+            <img src='img/puertaCiudad.png' id="pciudad" style="width:20%">
+        </div>
+        <div data-role="content">
+            <table style="width:100%">
+                <tr></tr>
+                <td>
+                    <input type="text" name="Mcedula" id="Mcedula" value="" placeholder="* C&eacute;dula" onkeypress="return validaNumero(event)" />
+                </td>
+                <td>
+                    <img src='img/index.png' id="visto" style="display: none;width:20%">
+                </td>
+                <tr>
+                    <td>
+                        <input type="text" name="Mnombres" id="Mnombres" value="" placeholder="* Nombres" onkeypress="return validaLetras(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="Mapellidos" id="Mapellidos" value="" placeholder="* Apellidos" onkeypress="return validaLetras(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="Mtelefono" id="Mtelefono" value="" placeholder="* Tel&eacute;fono" onkeypress="return validaNumero(event)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="Mlugar" id="Mlugar" value="" placeholder="* Lugar/Ciudad de residencia" />
+                        <a href="javascript:window.history.back();" onclick="ModificarDenunciante();" data-role="button" mini="true">OK</a>
+                       
+                    </td>
+                </tr>
+            </table>
+                </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview" style="width: 80%;">
+                <li data-role="collapsible">
+                    <h1>Configuracion</h1>
+                    <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                        <li><a href="#" onclick="pagina();">Datos Usuario</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#" onClick="cerrar()">Salir</a></li>
+            </ul>
+           <img src='img/logoMenu.png' id="logomenu8">
+        </div>
+        <img src='img/lineacolor.png' id="bandera8">
+        <center><img src='img/umtttsv1.png' id="umtttsv8"></center>
+    </div>
+</body>
+</html>
